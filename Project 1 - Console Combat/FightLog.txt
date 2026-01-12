@@ -1,8 +1,0 @@
-Level 5 Barbarian attacks Boar (Lvl 10)
-Boar (Lvl 10) loses 5 HP
-Boar (Lvl 10) charges at Level 5 Barbarian
-Level 5 Barbarian attacks Boar (Lvl 10)
-Boar (Lvl 10) loses 5 HP
-Boar (Lvl 10) has been slain
-Barbarian Wins
-
