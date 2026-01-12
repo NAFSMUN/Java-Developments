@@ -1,0 +1,5 @@
+Level 8 Barbarian
+Weapon: Sword
+HP: 20/20
+Mana: 15/15
+Speed: 3

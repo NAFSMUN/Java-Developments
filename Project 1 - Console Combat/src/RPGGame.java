@@ -54,8 +54,9 @@ public class RPGGame {
         private int baseDamage;
 
         // Constructor
-        public Character(String charClass) {
-            this.charClass = charClass;
+        public Character() {
+            String[] classes = {"Barbarian", "Wizard", "Archer", "Bard"};
+            charClass = classes[rand.nextInt(classes.length)];
             this.level = rand.nextInt(10) + 1; // Random level 1–10
             this.maxHP = rand.nextInt(6) + 15; // 15–20
             this.currentHP = maxHP;
@@ -169,8 +170,7 @@ public class RPGGame {
 
     // Generate and export character
     static void generateCharacter() {
-        String[] classes = {"Barbarian", "Wizard", "Archer", "Bard"};
-        Character c = new Character(classes[rand.nextInt(classes.length)]);
+        Character c = new Character();
         exportToFile("Character.txt", c.toString());
         System.out.println(c);
     }
@@ -184,7 +184,7 @@ public class RPGGame {
 
     // 1v1 Fight
     static void singleFight() {
-        Character c = new Character("Barbarian");
+        Character c = new Character();
         Enemy e = new Enemy();
         List<String> log = new ArrayList<>();
 
@@ -205,19 +205,19 @@ public class RPGGame {
             log.add(e.getName() + " charges at " + c.getName());
 
             if (c.dodge()) {
-                log.add("Barbarian dodges!");
+                log.add(c.getName() + " dodges!");
                 continue;
             }
 
             c.takeDamage(e.attack());
 
             if (c.flee()) {
-                log.add("Barbarian flees!");
+                log.add(c.getName() + " flees!");
                 break;
             }
         }
 
-        log.add(c.isAlive() ? "Barbarian Wins" : "Enemy Wins");
+        log.add(c.isAlive() ? c.getName() + " Wins" : e.getName() + " Wins");
         exportLog("FightLog.txt", log);
         log.forEach(System.out::println);
     }
@@ -226,7 +226,7 @@ public class RPGGame {
     static void teamFight() {
         List<Character> team = new ArrayList<>();
         for (int i = 0; i < 3; i++)
-            team.add(new Character("Archer"));
+            team.add(new Character());
 
         Enemy enemy = new Enemy();
         List<String> log = new ArrayList<>();
@@ -252,7 +252,7 @@ public class RPGGame {
             }
         }
 
-        log.add(enemy.isAlive() ? "Enemy Wins" : "Team Wins");
+        log.add(enemy.isAlive() ? "Enemy Wins" : "Humans Wins");
         exportLog("TeamFight.txt", log);
         log.forEach(System.out::println);
     }

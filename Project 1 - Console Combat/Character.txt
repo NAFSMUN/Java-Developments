@@ -1,5 +1,0 @@
-Level 3 Bard
-Weapon: Lute
-HP: 16/16
-Mana: 10/10
-Speed: 4
