@@ -1,3 +1,0 @@
-Demon (Lvl 8)
-HP: 10/10
-DMG: 5
